@@ -1,0 +1,12 @@
+0.0.3 (November 23, 2017)
+------------------------------
+
+
+0.0.2 (July 17, 2017)
+------------------------------
+Implemented Level 1
+Implemented Minnen protag
+
+0.0.1 (July 15, 2017)
+------------------------------
+Initial Prototype release
