@@ -4,7 +4,6 @@ import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxState;
-import flixel.effects.particles.FlxEmitter;
 
 class Player extends FlxSprite
 {
@@ -134,16 +133,5 @@ class Player extends FlxSprite
 			if (velocity.y != 0)
 				animation.play("jump");
 		}
-
-		if (this.justTouched(FlxObject.FLOOR))
-		{
-			state.forEachOfType(FlxEmitter, emitParticles);
-		}
-	}
-
-	private function emitParticles(emitter:FlxEmitter):Void
-	{
-		emitter.setPosition(this.x + (this.width / 2), this.y + this.height);
-		emitter.start(true, 0, 10);
 	}
 }
