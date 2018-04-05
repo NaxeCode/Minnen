@@ -13,6 +13,14 @@ class Player extends FlxSprite
 	private var jump:Bool = false;
 	private var releaseJump:Bool = false;
 
+	// Physics related attributes
+	public static var _canMove:Bool = true;
+	public static var _speed:Int = 230;
+	public static var _dragX:Int = 1500;
+	public static var _jumpPower:Int = 500;
+	public static var _jumpCount:Int = 2;
+	public static var _gravity:Int = 1350;
+
 	// Current State
 	private var state:FlxState;
 
@@ -20,9 +28,9 @@ class Player extends FlxSprite
     {
         super(X, Y);
 
-		state = STATE;
-
 		initGraphics();
+		initAnimation();
+
 		initPhysics();
 
 		//debug();
@@ -32,41 +40,39 @@ class Player extends FlxSprite
 	{
 		loadGraphic(AssetPaths.CharSpriteSheet_WHITE__png, true, 200, 200);
 
+		set_width(184);
+		set_height(188);
+		centerOffsets();
+
 		setFacingFlip(FlxObject.LEFT, true, false);
 		setFacingFlip(FlxObject.RIGHT, false, false);
-
-		//scale.scale(2);
-		//updateHitbox();
-
-		width -= 16;
-		centerOffsets();
-		height -= 12;
-
-		animation.add("idle", [0, 1, 2], 5, true);
-		animation.add("up", [3, 4, 5], 5, true);
-		animation.add("down", [6, 7, 8], 5, true);
-		animation.add("jump", [9, 10, 11], 5, true);
-		animation.add("run", [12, 13, 14, 15, 16, 17, 18, 19], 10, true);
-
-		animation.play("idle");
 
 		FlxG.camera.follow(this, PLATFORMER, 0.1);
 	}
 
+	private function initAnimation():Void
+	{
+		var frameRate:Int = 5;
+
+		animation.add("idle", [0, 1, 2], frameRate, true);
+		animation.add("up", [3, 4, 5], frameRate, true);
+		animation.add("down", [6, 7, 8], frameRate, true);
+		animation.add("jump", [9, 10, 11], frameRate, true);
+		animation.add("run", [12, 13, 14, 15, 16, 17, 18, 19], frameRate * 2, true);
+
+		animation.play("idle");
+	}
+
 	private function initPhysics():Void
 	{
-		maxVelocity.set(Reg._speed / 1.2, Reg._jumpPower * 1.5);
-		acceleration.y = Reg._gravity;
-		drag.set(Reg._dragX, 0);
+		handlePhysics();
 	}
 
 	override public function update(elapsed:Float):Void
 	{
-		if (Reg._canMove)
-			handleMovement();
+		handleMovement();
 		handlePhysics();
 		handleAnimation();
-
 		super.update(elapsed);
 	}
 
@@ -99,11 +105,11 @@ class Player extends FlxSprite
 		}
 
 		if (isTouching(FlxObject.FLOOR))
-			Reg._jumpCount = 2;
-		if (jump && Reg._jumpCount > 0)
+			_jumpCount = 2;
+		if (jump && _jumpCount > 0)
 		{
 			velocity.y -= maxVelocity.y / 1.5;
-			Reg._jumpCount--;
+			_jumpCount--;
 		}
 		else if (releaseJump)
 		{
@@ -114,9 +120,9 @@ class Player extends FlxSprite
 
 	private function handlePhysics():Void
 	{
-		maxVelocity.set(Reg._speed / 1.2, Reg._jumpPower * 1.5);
-		acceleration.y = Reg._gravity;
-		drag.set(Reg._dragX, 0);
+		maxVelocity.set(_speed / 1.2, _jumpPower * 1.5);
+		acceleration.y = _gravity;
+		drag.set(_dragX, 0);
 	}
 
 	private function handleAnimation():Void
