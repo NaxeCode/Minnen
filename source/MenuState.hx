@@ -116,11 +116,6 @@ class MenuState extends FlxState
             FlxG.keys.enabled = false;
             FlxG.camera.fade(FlxColor.WHITE, 5, false, playGame);
         }
-
-        if (FlxG.keys.justPressed.SPACE)
-        {
-            Reg.switchState();
-        }
     }
 
     private function playGame():Void

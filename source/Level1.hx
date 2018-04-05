@@ -24,7 +24,6 @@ class Level1 extends FlxState
 	{
 		super.create();
 
-		Reg.create();
         setProperties();
 		addLevel();
 	}
@@ -110,7 +109,6 @@ class Level1 extends FlxState
 	{
 		super.update(elapsed);
 
-		Reg.update(elapsed);
         handleInput();
 
 		level.collideWithLevel(level.objectsLayer);
@@ -122,7 +120,6 @@ class Level1 extends FlxState
 	{
 		if (FlxMath.isDistanceToPointWithin(plr, FlxPoint.get(3121, 1668), 200))
 		{
-			Reg._canMove = false;
 			updateTooth();
 		}
 	}
@@ -146,10 +143,5 @@ class Level1 extends FlxState
 	{
 		if (FlxG.keys.justPressed.BACKSPACE)
 			FlxG.switchState(new MenuState());
-
-		if (FlxG.keys.justPressed.T)
-		{
-			level.objectsLayer.forEachOfType(Player, Reg.tracePlayer);
-		}
 	}
 }
