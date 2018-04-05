@@ -130,13 +130,8 @@ class Level1 extends FlxState
 		if (FlxG.keys.anyJustPressed([SPACE, Z]))
 		{
 			FlxG.keys.enabled = false;
-            FlxG.camera.fade(FlxColor.WHITE, 5, false, transitionToNextLvl);
+            FlxG.camera.fade(FlxColor.WHITE, 5, false);
 		}
-	}
-
-	private function transitionToNextLvl():Void
-	{
-		FlxG.switchState(new Level2());
 	}
 
 	private function handleInput():Void
