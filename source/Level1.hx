@@ -134,11 +134,6 @@ class Level1 extends FlxState
 		}
 	}
 
-	private function transitionToNextLvl():Void
-	{
-		FlxG.switchState(new Level2());
-	}
-
 	private function handleInput():Void
 	{
 		if (FlxG.keys.justPressed.BACKSPACE)
