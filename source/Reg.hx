@@ -1,11 +1,37 @@
+/*
+ * Default REG class
+ * =======================
+ * Version: 05-2016
+ * ---------------- *
+ * 
+ * You should copy-paste this file to your new Project and use this as a template.
+ * Expand the functions as you like
+ * 
+ */
+
 package;
 
+
 import flixel.FlxG;
+import flixel.FlxObject;
+import flixel.util.FlxSave;
 import flixel.math.FlxPoint;
 import flixel.util.FlxColor;
+//import djFlixel.gapi.ApiEmpty;
+import flixel.input.gamepad.FlxGamepadInputID;
+import flixel.input.gamepad.FlxGamepad;
+import flixel.input.keyboard.FlxKey;
+import flixel.input.keyboard.FlxKeyboard;
+import enemies.*;
+import player.*;
 
-class Reg 
+class Reg
 {
+	public static var VERSION:String = "0.0.5";
+	public static var NAME:String = "Minnen";
+	public static var VOLUME:Float = 0.6;
+	public static var MUSIC:Bool = false;
+
     // Colors
     public static var mainColor:FlxColor = FlxColor.fromInt(0xFFFFFFFF);
     public static var subColor:FlxColor = FlxColor.fromInt(0xFFFFFFFF);
@@ -16,51 +42,96 @@ class Reg
     public static var subFont:String = AssetPaths.vermin_vibes_1989__ttf;
     public static var creditsFont:String = AssetPaths.VCR_OSD_MONO_1__001__ttf;
 
-    // Settings
-    public static var sfxVolume:Float = 0.5;
-    public static var musicVolume:Float = 0.5;
+	// Global Player Object
+    public static var player:Player;
 
-    public static var _canMove:Bool = true;
-	public static var _speed:Int = 230;
-	public static var _dragX:Int = 1500;
-	public static var _jumpPower:Int = 500;
-	public static var _jumpCount:Int = 2;
-	public static var _gravity:Int = 1350;
+    // Saved Data
+    public static var SlimeSouls:Int = 0;
 
-    // Game Data
-    public static var difficulty:Float = 0.0;
-    public static var playerSpawn:FlxPoint = FlxPoint.get(0, 0);
 
-    public static function switchState():Void
+	// pointer to the first connected gamepad
+	public static var gamepad:FlxGamepad;
+	// Pointer to the keyboard for quick access
+	//static var keys(default, null):FlxKeyboard;
+    
+    // Menu Keys
+    public static function confirm_Pressed():Bool 
+	{ 
+		return (FlxG.gamepads.anyJustPressed(FlxGamepadInputID.A) || FlxG.keys.justPressed.Z); 
+	}
+    public static function cancel_Pressed():Bool 
+	{ 
+		return (FlxG.gamepads.anyJustPressed(FlxGamepadInputID.X) || FlxG.keys.justPressed.X); 
+	}
+    public static function pause_Pressed():Bool 
+	{ 
+		return (FlxG.gamepads.anyJustPressed(FlxGamepadInputID.START) || FlxG.keys.justPressed.ESCAPE); 
+	}
+    public static function collectionMenu_Pressed():Bool 
+	{ 
+		return (FlxG.gamepads.anyJustPressed(FlxGamepadInputID.Y) || FlxG.keys.justPressed.Q); 
+	}
+
+    // Movement Keys
+    //public static function left_Pressed():Bool { return FlxG.gamepads.anyPressed(FlxGamepadInputID.DPAD_LEFT); }
+    public static function left_Pressed():Bool
+	{
+		return (FlxG.gamepads.anyPressed(FlxGamepadInputID.DPAD_LEFT) || FlxG.keys.pressed.LEFT); 
+	}
+    public static function right_Pressed():Bool 
+	{ 
+		return (FlxG.gamepads.anyPressed(FlxGamepadInputID.DPAD_RIGHT) || FlxG.keys.pressed.RIGHT); 
+	}
+    public static function up_Pressed():Bool 
+	{ 
+		return (FlxG.gamepads.anyPressed(FlxGamepadInputID.DPAD_UP) || FlxG.keys.pressed.UP); 
+	}
+    public static function down_Pressed():Bool 
+	{ 
+		return (FlxG.gamepads.anyPressed(FlxGamepadInputID.DPAD_DOWN) || FlxG.keys.pressed.DOWN); 
+	}
+
+    // Action Keys	
+    public static function jump_justPressed():Bool 
+	{ 
+		return (FlxG.gamepads.anyJustPressed(FlxGamepadInputID.A) || FlxG.keys.justPressed.Z); 
+	}
+    public static function jump_justReleased():Bool 
+	{ 
+		return (FlxG.gamepads.anyJustReleased(FlxGamepadInputID.A) || FlxG.keys.justReleased.Z); 
+	}
+    public static function shoot_justPressed():Bool 
+	{ 
+		return (FlxG.gamepads.anyJustPressed(FlxGamepadInputID.X) || FlxG.keys.justPressed.X); 
+	}
+    public static function shoot_justReleased():Bool 
+	{ 
+		return (FlxG.gamepads.anyJustReleased(FlxGamepadInputID.X) || FlxG.keys.justReleased.X); 
+	}
+
+    public static function setupRegistry():Void
     {
-        FlxG.switchState(new Level2());
+		#if debug
+		setupDebug();
+		#end
     }
 
-    public static function create():Void
-    {
-        FlxG.log.redirectTraces = true;
-        debug();
-    }
-
-    public static function tracePlayer(plr:Player):Void
-    {
-        trace(Std.int(plr.x));
-		trace(Std.int(plr.y));
-    }
-
-    public static function debug():Void
-    {
-        FlxG.watch.add(FlxG, "elapsed");
-    }
-
-    public static function toggleAntiAliasaing():Void
-    {
-        if (FlxG.keys.justPressed.A)
-            FlxG.camera.antialiasing = !FlxG.camera.antialiasing;
-    }
-
-    public static function update(elapsed:Float):Void
-    {
-        toggleAntiAliasaing();
-    }
+	public static function setupDebug():Void
+	{
+		FlxG.log.redirectTraces = true;
+        FlxG.console.registerObject("player", Reg.player);
+	}
+	
+	// -- APIS  ------ 
+	#if GAMEJOLT
+		// Extend the ApiGameJoltGeneric and set it to api
+		// public static var api:ApiGameJolt = new ApiGameJolt();
+	#elseif KONG
+		// Extend the ApiKongregateGeneric and set it to api
+		// public static var api:ApiKongregate = new ApiKongregate();
+	#elseif NEWGROUNDS
+		// public static var api:ApiNewgrounds = new ApiNewgrounds();
+	#else
+		//public static var api:ApiEmpty = new ApiEmpty();
+	#end
 }
