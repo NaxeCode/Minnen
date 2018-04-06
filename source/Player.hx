@@ -4,19 +4,14 @@ import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxState;
+import flixel.input.gamepad.FlxGamepad;
 
 class Player extends FlxSprite
 {
-	// Controls
-	private var left:Bool = false;
-	private var right:Bool = false;
-	private var jump:Bool = false;
-	private var releaseJump:Bool = false;
-
 	// Physics related attributes
-	public static var _canMove:Bool = true;
 	public static var _speed:Int = 230;
 	public static var _dragX:Int = 1500;
+	public static var _dragY:Int = 1500;
 	public static var _jumpPower:Int = 500;
 	public static var _jumpCount:Int = 2;
 	public static var _gravity:Int = 1350;
@@ -78,66 +73,76 @@ class Player extends FlxSprite
 
 	private function handleMovement():Void
 	{
-		acceleration.x = 0;
+		acceleration.set(0, 0);
 
-		left = FlxG.keys.pressed.LEFT;
-		right = FlxG.keys.pressed.RIGHT;
-		jump = FlxG.keys.justPressed.S;
-		releaseJump = FlxG.keys.justReleased.S;
-		
+		Reg.gamepad = FlxG.gamepads.lastActive;
+
+		if (Reg.gamepad != null)
+			handleGamepad(Reg.gamepad);
+
 		// Left movement
-		if (left && !right)
-		{
-			facing = FlxObject.LEFT;
-			if (isTouching(FlxObject.FLOOR))
-				acceleration.x = -maxVelocity.x * 6;
-			else
-				acceleration.x = -maxVelocity.x * 4;
-		}
+		if (Reg.left_Pressed() && !Reg.right_Pressed())
+			move("left");
+		
 		// Right movement
-		if (right && !left)
-		{
-			facing = FlxObject.RIGHT;
-			if (isTouching(FlxObject.FLOOR))
-				acceleration.x = maxVelocity.x * 6;
-			else
-				acceleration.x = maxVelocity.x * 4;
-		}
+		if (Reg.right_Pressed() && !Reg.left_Pressed())
+			move("right");
 
-		if (isTouching(FlxObject.FLOOR))
-			_jumpCount = 2;
-		if (jump && _jumpCount > 0)
+		// Up movement
+		if (Reg.up_Pressed() && !Reg.down_Pressed())
+			move("up");
+		
+		// Down movement
+		if (Reg.down_Pressed() && !Reg.up_Pressed())
+			move("down");
+	}
+
+	private function move(direction:String):Void
+	{
+		var multiFactor:Int = 5;
+		
+		switch (direction)
 		{
-			velocity.y -= maxVelocity.y / 1.5;
-			_jumpCount--;
+			case "left": 
+				facing = FlxObject.LEFT;
+				acceleration.x = -maxVelocity.x * multiFactor;
+			case "right":
+				facing = FlxObject.RIGHT;
+				acceleration.x = maxVelocity.x * multiFactor;
+			
+			case "up":
+				facing = FlxObject.UP;
+				acceleration.y = -maxVelocity.y * multiFactor;
+			case "down":
+				facing = FlxObject.DOWN;
+				acceleration.y = maxVelocity.y * multiFactor;
 		}
-		else if (releaseJump)
-		{
-			if (velocity.y < -30)
-				velocity.y = -100;
-		}
+	}
+
+	private function handleGamepad(gamepad:FlxGamepad):Void
+	{
+		var value = gamepad.analog.value;
+		gamepad.deadZone = 0.35;
+
+		FlxG.watch.addQuick("leftStick", value.LEFT_STICK_X);
+
+		if (value.LEFT_STICK_X < 0)
+			move("left");
+		if (value.LEFT_STICK_X > 0)
+			move("right");
 	}
 
 	private function handlePhysics():Void
 	{
-		maxVelocity.set(_speed / 1.2, _jumpPower * 1.5);
-		acceleration.y = _gravity;
-		drag.set(_dragX, 0);
+		maxVelocity.set(_speed * 1.2, _speed * 1.5);
+		drag.set(_dragX, _dragY);
 	}
 
 	private function handleAnimation():Void
 	{
-		if (isTouching(FlxObject.FLOOR))
-		{
-			if (velocity.x != 0)
-				animation.play("run");
-			else
-				animation.play("idle");
-		}
+		if (velocity.x != 0 || velocity.y != 0)
+			animation.play("run");
 		else
-		{
-			if (velocity.y != 0)
-				animation.play("jump");
-		}
+			animation.play("idle");
 	}
 }
