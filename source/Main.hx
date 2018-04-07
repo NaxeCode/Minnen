@@ -18,7 +18,7 @@ class Main extends Sprite
 		stage.addEventListener(KeyboardEvent.KEY_DOWN, stage_onKeyDown);
 		#end
 
-		addChild(new FlxGame(1920, 1080, MenuState, 1, 60, 60, true, true));
+		addChild(new FlxGame(1280, 720, MenuState, 1, 60, 60, true, true));
 
 		Reg.setupRegistry();
 	}
