@@ -29,6 +29,9 @@ class Main extends Sprite
 		{
 			case Keyboard.F: FlxG.fullscreen = !FlxG.fullscreen;	
 			case Keyboard.A: FlxG.camera.antialiasing = !FlxG.camera.antialiasing;	
+			#if !flash
+			case Keyboard.ESCAPE: Sys.exit(1);
+			#end
 		}
 	}
 }
