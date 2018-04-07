@@ -136,6 +136,11 @@ class Player extends FlxSprite
 			move("left");
 		if (value.LEFT_STICK_X > 0)
 			move("right");
+		
+		if (value.LEFT_STICK_Y < 0)
+			move("up");
+		if (value.LEFT_STICK_Y > 0)
+			move("down");
 	}
 
 	private function handlePhysics():Void
