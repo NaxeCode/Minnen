@@ -10,7 +10,6 @@ import flixel.input.gamepad.FlxGamepad;
  *  TODO:
  *  - Improve animation support
  *  - Update physics
- *  - Do something about the lag
  */
 class Player extends FlxSprite
 {
