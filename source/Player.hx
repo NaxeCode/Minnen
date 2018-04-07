@@ -145,7 +145,7 @@ class Player extends FlxSprite
 
 	private function handlePhysics():Void
 	{
-		maxVelocity.set(_speed * 1.2, _speed * 1.5);
+		maxVelocity.set(_speed * 1.4, _speed * 1.3);
 		drag.set(_dragX, _dragY);
 	}
 
