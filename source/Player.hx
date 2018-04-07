@@ -102,6 +102,24 @@ class Player extends FlxSprite
 			move("down");
 	}
 
+	private function handleGamepad(gamepad:FlxGamepad):Void
+	{
+		var value = gamepad.analog.value;
+		gamepad.deadZone = 0.35;
+
+		FlxG.watch.addQuick("leftStick", value.LEFT_STICK_X);
+
+		if (value.LEFT_STICK_X < 0)
+			move("left");
+		if (value.LEFT_STICK_X > 0)
+			move("right");
+		
+		if (value.LEFT_STICK_Y < 0)
+			move("up");
+		if (value.LEFT_STICK_Y > 0)
+			move("down");
+	}
+
 	private function move(direction:String):Void
 	{
 		var multiFactor:Int = 5;
@@ -123,24 +141,7 @@ class Player extends FlxSprite
 				acceleration.y = maxVelocity.y * multiFactor;
 		}
 	}
-
-	private function handleGamepad(gamepad:FlxGamepad):Void
-	{
-		var value = gamepad.analog.value;
-		gamepad.deadZone = 0.35;
-
-		FlxG.watch.addQuick("leftStick", value.LEFT_STICK_X);
-
-		if (value.LEFT_STICK_X < 0)
-			move("left");
-		if (value.LEFT_STICK_X > 0)
-			move("right");
-		
-		if (value.LEFT_STICK_Y < 0)
-			move("up");
-		if (value.LEFT_STICK_Y > 0)
-			move("down");
-	}
+	
 
 	private function handlePhysics():Void
 	{
