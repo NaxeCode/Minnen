@@ -18,7 +18,12 @@ class Main extends Sprite
 		stage.addEventListener(KeyboardEvent.KEY_DOWN, stage_onKeyDown);
 		#end
 
-		addChild(new FlxGame(1280, 720, MenuState, 1, 60, 60, true, true));
+		#if !flash
+		addChild(new FlxGame(1920, 1080, MenuState, 1, 60, 60, true, true));
+		#else
+		addChild(new FlxGame(0, 0, MenuState, 1, 60, 60, true, false));
+		FlxG.camera.zoom = 0.5;
+		#end
 
 		Reg.setupRegistry();
 	}
@@ -29,7 +34,7 @@ class Main extends Sprite
 		{
 			case Keyboard.F: FlxG.fullscreen = !FlxG.fullscreen;	
 			case Keyboard.A: FlxG.camera.antialiasing = !FlxG.camera.antialiasing;	
-			#if !flash
+			#if (!flash && !html5)
 			case Keyboard.ESCAPE: Sys.exit(1);
 			#end
 		}

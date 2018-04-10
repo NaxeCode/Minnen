@@ -22,6 +22,9 @@
 	<!--Desktop-specific-->
 	<window if="desktop" orientation="landscape" fullscreen="true" resizable="true" />
 
+	<!--Flash-specific-->
+	<window if="flash" width="0" height="0" />
+
 	<!--Mobile-specific-->
 	<window if="mobile" orientation="landscape" fullscreen="true" width="0" height="0" />
 
