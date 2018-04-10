@@ -33,7 +33,7 @@ class Level1 extends FlxState
 		FlxG.camera.antialiasing = true;
 		FlxG.camera.fade(Reg.BGColor, 1, true);
 		FlxG.mouse.visible = false;
-		FlxG.cameras.bgColor = FlxColor.WHITE;// Reg.BGColor;
+		FlxG.cameras.bgColor = FlxColor.WHITE;
 		//FlxG.sound.playMusic(AssetPaths.Dimensions__mp3, Reg.musicVolume, true);
 	}
 
