@@ -1,7 +1,12 @@
 Since changing the Design, the game needs some extra features and implementations so, I need to come up with a new todo list that describes the features we currently need to undergo the next milestone which is 0.1.0
-We'll split the Todo lists into a couple of catagories; first being core gameplay stuff, meaning the general game mechanics across all levels in the game
 
-core gameplay Todo list:
+Here's what needs to be done for 0.1.0 to be done and merged into the main branch:
+[ ] basic art
+[ ] basic sfx
+[ ] basic music
+[ ] Level needs some sort of requirement to pass
+
+current todo list:
 [ ] Implement TiledEditor
 [ ] Make the movement feel better
 [ ] Implement *interaction* button
