@@ -1,14 +1,7 @@
-Ok, let's write down a todo list atm for the things that I think need to be done by the end of the week.
-I'd like to finish the first 3 levels by the end of this week, that'd be awesome, so we'll focus on the first 3 levels.
+Since changing the Design, the game needs some extra features and implementations so, I need to come up with a new todo list that describes the features we currently need to undergo the next milestone which is 0.1.0
+We'll split the Todo lists into a couple of catagories; first being core gameplay stuff, meaning the general game mechanics across all levels in the game
 
-Todo list, level 1:
-[ ] Make the jump slightly higher
-[ ] Implement double jump
-[X] Have reaching the end of the cave:
-	disable player controls,
-	display's tooth graphic,
-	upon pressing Z/SPACE, Screen fades to white+transitions to level 2.
-[ ] Level 1 Music
-[ ] Make the player spawn particles on every step
-
-Todo list, level 2:
+core gameplay Todo list:
+[ ] Implement TiledEditor
+[ ] Make the movement feel better
+[ ] Implement *interaction* button
