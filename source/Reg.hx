@@ -46,7 +46,7 @@ class Reg
     public static var player:Player;
 
     // Saved Data
-    public static var SlimeSouls:Int = 0;
+    public static var Teeth:Int = 0;
 
 
 	// pointer to the first connected gamepad
