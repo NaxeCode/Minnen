@@ -102,7 +102,5 @@ class Level1 extends FlxState
 		super.update(elapsed);
 
 		level.collideWithLevel(level.objectsLayer);
-
-		level.objectsLayer.forEachOfType(Player, checkEndLevel);
 	}
 }
