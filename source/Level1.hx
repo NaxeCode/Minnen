@@ -3,8 +3,6 @@ package;
 import flixel.FlxG;
 import flixel.FlxState;
 import flixel.FlxSprite;
-import flixel.effects.particles.FlxEmitter;
-import flixel.effects.particles.FlxParticle;
 import flixel.math.FlxPoint;
 import flixel.util.FlxColor;
 import flixel.addons.display.FlxBackdrop;
@@ -13,11 +11,6 @@ import flixel.math.FlxMath;
 class Level1 extends FlxState
 {
 	public var level:TiledLevel;
-
-	private var tooth:FlxSprite;
-
-	// Handles Particle Generation
-	public var _emitter:FlxEmitter;
 	
 	override public function create():Void
 	{
@@ -39,8 +32,6 @@ class Level1 extends FlxState
 	{
 		addBG();
 		addTiledLevel(AssetPaths.prototypeLvl__tmx, "assets/tiled/prototypeLvl/", this);
-		addEmitter();
-		createTooth();
 	}
 
 	private function addBG():Void
@@ -74,28 +65,6 @@ class Level1 extends FlxState
 		// Add foreground tiles after adding level objects, so these tiles render on top of player
 		add(level.foregroundTiles);
 	}
-	
-	private function addEmitter():Void
-	{
-		var particles:Int = 200;
-		var colors:Array<Int> = [Reg.mainColor, Reg.BGColor];
-		_emitter = new FlxEmitter(FlxG.width / 2 , FlxG.height / 2, particles);
-		_emitter.acceleration.start.min.y = -50;
-		_emitter.acceleration.start.max.y = -100;
-		_emitter.acceleration.end.min.y = -700;
-		_emitter.acceleration.end.max.y = -900;
-
-		for (i in 0...particles)
-		{
-			var particle = new FlxParticle();
-			particle.makeGraphic(2, 2, FlxG.random.getObject(colors));
-			particle.exists = false;
-			_emitter.add(particle);
-		}
-
-		add(_emitter);
-	}
-
 
 	override public function update(elapsed:Float):Void
 	{
