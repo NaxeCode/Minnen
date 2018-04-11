@@ -18,8 +18,7 @@ class Level1 extends FlxState
 
 	// Handles Particle Generation
 	public var _emitter:FlxEmitter;
-
-	// INITIALIZATION FUNCTIONS START HERE ---------------
+	
 	override public function create():Void
 	{
 		super.create();
@@ -34,13 +33,12 @@ class Level1 extends FlxState
 		FlxG.camera.fade(Reg.BGColor, 1, true);
 		FlxG.mouse.visible = false;
 		FlxG.cameras.bgColor = FlxColor.WHITE;
-		//FlxG.sound.playMusic(AssetPaths.Dimensions__mp3, Reg.musicVolume, true);
 	}
 
 	private function addLevel():Void
 	{
 		addBG();
-		addTiledLevel(AssetPaths.level1__tmx, "assets/tiled/Level1/", this);
+		addTiledLevel(AssetPaths.prototypeLvl__tmx, "assets/tiled/prototypeLvl/", this);
 		addEmitter();
 		createTooth();
 	}
@@ -50,8 +48,16 @@ class Level1 extends FlxState
 		add(new FlxBackdrop(AssetPaths.LEVEL_1_BG__png));
 	}
 
-	private function addTiledLevel(lvlPath:String, lvlDirectory:String, state:FlxState):Void
+	private function addTiledLevel(lvlPath:String, ?lvlDirectory:String, state:FlxState):Void
 	{
+		#if !sys
+		if (lvlDirectory == null)
+			throw "You're required to provide a level directory if you're targetting Flash!"
+		#else
+		var path = new haxe.io.Path(lvlPath);
+		lvlDirectory = path.dir;
+		#end
+		
 		level = new TiledLevel(lvlPath, lvlDirectory, state);
 		// Add backgrounds
 		add(level.backgroundLayer);
@@ -90,53 +96,13 @@ class Level1 extends FlxState
 		add(_emitter);
 	}
 
-	private function createTooth():Void
-	{
-		tooth = new FlxSprite(0, 0).makeGraphic(640, 360);
-		tooth.screenCenter();
-		tooth.alpha = 0.0;
-		tooth.scrollFactor.set(0, 0);
-		add(tooth);
-	}
-	// INITIALIZATION FUNCTIONS END HERE
 
-
-	// =====================================================
-
-
-	// UPDATE RELATED FUNCTIONS
 	override public function update(elapsed:Float):Void
 	{
 		super.update(elapsed);
 
-        handleInput();
-
 		level.collideWithLevel(level.objectsLayer);
 
 		level.objectsLayer.forEachOfType(Player, checkEndLevel);
-	}
-
-	private function checkEndLevel(plr:Player):Void
-	{
-		if (FlxMath.isDistanceToPointWithin(plr, FlxPoint.get(3121, 1668), 200))
-		{
-			updateTooth();
-		}
-	}
-
-	private function updateTooth():Void
-	{
-		tooth.alpha = 1.0;
-		if (FlxG.keys.anyJustPressed([SPACE, Z]))
-		{
-			FlxG.keys.enabled = false;
-            FlxG.camera.fade(FlxColor.WHITE, 5, false);
-		}
-	}
-
-	private function handleInput():Void
-	{
-		if (FlxG.keys.justPressed.BACKSPACE)
-			FlxG.switchState(new MenuState());
 	}
 }

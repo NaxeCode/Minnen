@@ -240,26 +240,10 @@ class TiledLevel extends TiledMap
 		if (o.gid != -1)
 			y -= g.map.getGidOwner(o.gid).tileHeight;
 
-		switch (objType)
+		switch (o.name)
 		{
-			case "backgroundObj":
-				switch (o.name)
-				{
-					case "cave":
-						backgroundObjects.add(new FlxSprite(x, y, AssetPaths.Cave_Background__png));
-				}
-			case "objects":
-				switch (o.name)
-				{
-					case "player":
-						objectsLayer.add(new Player(x, y, state));
-				}
-			case "foregroundObj":
-				switch (o.name)
-				{
-					case "cave":
-						foregroundObjects.add(new FlxSprite(x, y, AssetPaths.Cave_Foreground__png));
-				}
+			case "player_spawn":
+				Reg.player.setPosition(x, y);
 		}
 	}
 
