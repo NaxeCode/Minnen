@@ -114,7 +114,7 @@ class MenuState extends FlxState
         if (FlxG.keys.justPressed.ENTER)
         {
             FlxG.keys.enabled = false;
-            FlxG.camera.fade(FlxColor.WHITE, 5, false, playGame);
+            FlxG.camera.fade(FlxColor.WHITE, 1, false, playGame);
         }
     }
 
