@@ -17,6 +17,7 @@ class Level1 extends FlxState
 		super.create();
 
         setProperties();
+		initPlayer();
 		addLevel();
 	}
 
@@ -28,10 +29,15 @@ class Level1 extends FlxState
 		FlxG.cameras.bgColor = FlxColor.WHITE;
 	}
 
+	private function initPlayer():Void
+	{
+		Reg.player = new Player(0, 0, this);
+	}
+
 	private function addLevel():Void
 	{
 		addBG();
-		addTiledLevel(AssetPaths.prototypeLvl__tmx, "assets/tiled/prototypeLvl/", this);
+		addTiledLevel(AssetPaths.prototypeLvl__tmx, "assets/tiled/PrototypeLvl/", this);
 	}
 
 	private function addBG():Void
@@ -41,13 +47,15 @@ class Level1 extends FlxState
 
 	private function addTiledLevel(lvlPath:String, ?lvlDirectory:String, state:FlxState):Void
 	{
+		/*
 		#if !sys
 		if (lvlDirectory == null)
-			throw "You're required to provide a level directory if you're targetting Flash!"
+			throw "You're required to provide a level directory if you're targetting Flash!";
 		#else
 		var path = new haxe.io.Path(lvlPath);
 		lvlDirectory = path.dir;
 		#end
+		*/
 		
 		level = new TiledLevel(lvlPath, lvlDirectory, state);
 		// Add backgrounds
@@ -57,6 +65,8 @@ class Level1 extends FlxState
 
 		// Load player objects
 		add(level.backgroundObjects);
+
+		add(Reg.player);
 		// Load player objects
 		add(level.objectsLayer);
 		// Load player objects
