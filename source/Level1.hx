@@ -1,5 +1,8 @@
 package;
 
+import flixel.FlxObject;
+import flixel.group.FlxSpriteGroup;
+import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.FlxG;
 import flixel.FlxState;
 import flixel.FlxSprite;
@@ -17,17 +20,12 @@ class Level1 extends FlxState
 
 	public var noah:NPC;
 	public var npcs:FlxTypedGroup<NPC>;
-
-	public static var gameCamera:FlxCamera;
-
-	var uiCamera:FlxCamera;
 	
 	override public function create():Void
 	{
 		super.create();
 
         setProperties();
-		initPlayer();
 		addLevel();
 	}
 
@@ -36,18 +34,11 @@ class Level1 extends FlxState
 		FlxG.camera.antialiasing = true;
 		FlxG.camera.fade(Reg.BGColor, 1, true);
 		FlxG.mouse.visible = false;
-		FlxG.cameras.bgColor = FlxColor.WHITE;
-	}
-
-	private function initPlayer():Void
-	{
-		Reg.player = new Player(0, 0, this);
+		FlxG.cameras.bgColor = FlxColor.BLACK;
 	}
 
 	private function addLevel():Void
 	{
-		add(Reg.player);
-
 		var project = new LdtkProject();
 
 		// Create a FlxGroup for all level layers
@@ -109,22 +100,20 @@ class Level1 extends FlxState
 		x = entityLayer.all_Player[0].pixelX;
 		y = entityLayer.all_Player[0].pixelY;
 
-		player = new Player(x, y);
-		add(player);
+		Reg.player = new Player(x, y, this);
+		add(Reg.player);
 	}
 
 	override public function update(elapsed:Float):Void
 	{
 		super.update(elapsed);
 
-		handleMotion();
-
-		FlxG.collide(collider, player);
+		FlxG.collide(collider, Reg.player);
 	}
 
 
 
-	
+
 	/*
 	function handleMotion() {
 		 * # Example Data
