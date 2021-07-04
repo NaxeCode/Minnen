@@ -1,16 +1,21 @@
 package;
 
+import flixel.FlxCamera;
 import flixel.FlxG;
-import flixel.FlxState;
+import flixel.FlxObject;
+import flixel.FlxObject;
 import flixel.FlxSprite;
-import flixel.math.FlxPoint;
-import flixel.util.FlxColor;
-import flixel.addons.display.FlxBackdrop;
+import flixel.FlxState;
+import flixel.group.FlxGroup.FlxTypedGroup;
+import flixel.group.FlxSpriteGroup;
 import flixel.math.FlxMath;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+import flixel.util.FlxColor;
 
-class Level1 extends FlxState
+class BetterTutorial extends FlxState
 {
-	//public var player:Player;
+	public var player:Player;
 
 	var collider:FlxSpriteGroup;
 	var background:FlxSpriteGroup;
@@ -18,35 +23,26 @@ class Level1 extends FlxState
 	public var noah:NPC;
 	public var npcs:FlxTypedGroup<NPC>;
 
+	public var dialogueBox:DialogueBox;
+
 	public static var gameCamera:FlxCamera;
 
 	var uiCamera:FlxCamera;
-	
-	override public function create():Void
+
+	override public function create()
 	{
 		super.create();
 
-        setProperties();
-		initPlayer();
-		addLevel();
-	}
+		FlxG.camera.flash(FlxColor.BLACK, 4);
 
-	private function setProperties():Void
-	{
-		FlxG.camera.antialiasing = true;
-		FlxG.camera.fade(Reg.BGColor, 1, true);
-		FlxG.mouse.visible = false;
-		FlxG.cameras.bgColor = FlxColor.WHITE;
-	}
+		dialogueBox = new DialogueBox();
+		add(dialogueBox);
 
-	private function initPlayer():Void
-	{
-		Reg.player = new Player(0, 0, this);
-	}
+		gameCamera = new FlxCamera(0, 0, FlxG.width, FlxG.height);
+		uiCamera = new FlxCamera(0, 0, FlxG.width, FlxG.height);
 
-	private function addLevel():Void
-	{
-		add(Reg.player);
+		gameCamera.bgColor = 0xFF17142d;
+		uiCamera.bgColor = FlxColor.TRANSPARENT;
 
 		var project = new LdtkProject();
 
@@ -81,6 +77,20 @@ class Level1 extends FlxState
 			tile.immovable = true;
 		}
 		add(collider);
+
+		gameCamera.follow(player);
+		gameCamera.zoom = 2;
+
+		// FlxG.cameras.reset(gameCamera);
+
+		FlxG.cameras.add(gameCamera);
+		FlxG.cameras.add(uiCamera, false);
+
+		gameCamera.cameras = [uiCamera];
+		// gameCamera.camera.setScrollBoundsRect(0, 0, background.width, background.height, true);
+		dialogueBox.cameras = [uiCamera];
+
+		dialogueBox.scrollFactor.set(0, 0);
 	}
 
 	function createEntities(entityLayer:LdtkProject.Layer_Entities)
@@ -113,45 +123,45 @@ class Level1 extends FlxState
 		add(player);
 	}
 
-	override public function update(elapsed:Float):Void
+	override public function update(elapsed:Float)
 	{
-		super.update(elapsed);
+		handleDialogBox();
 
-		handleMotion();
+		super.update(elapsed);
 
 		FlxG.collide(collider, player);
 	}
 
-
-
-	
-	/*
-	function handleMotion() {
-		 * # Example Data
-		x = sample(-100:100, 50)
-
-		#Normalized Data
-		normalized = (x-min(x))/(max(x)-min(x))
-		
-		trace(Reg.player.x);
-		// This is what needs to be operated on.
-		//level.foregroundTiles
-		for (tile in tileCoords)
+	function handleDialogBox()
+	{
+		#if desktop
+		if (FlxG.keys.justPressed.Z)
 		{
-			//trace();
-			var minX = -(tile.x - 500);
-			var maxX = (tile.x + 500);
-			var normalized = (Reg.player.x - minX) / (maxX - minX);
-			//trace(normalized);
-			//tile.alpha  = ((Reg.player.x - 0) / (1 - 0) * (255 - 0) + 0);
-			//trace("Close to Tile.X " + tile.x + " Tile.Y: " + tile.y);
-			//trace();
-			//trace(tile.y);
-			if (FlxMath.distanceToPoint(Reg.player, new FlxPoint(tile.x, tile.y)) <= 200)
+			if (dialogueBox.visible)
 			{
-				
+				if (!dialogueBox.typeText._typing)
+				{
+					FlxTween.tween(gameCamera, {zoom: 2}, 0.5, {ease: FlxEase.backOut});
+					Reg.canMove = true;
+					dialogueBox.visible = false;
+				}
+				else
+				{
+					dialogueBox.typeText.skip();
+				}
+			}
+			else if (!dialogueBox.visible)
+			{
+				for (member in npcs)
+				{
+					if (FlxMath.isDistanceWithin(member, player, 50))
+					{
+						dialogueBox.say(member.text);
+						FlxTween.tween(gameCamera, {zoom: 4}, 0.5, {ease: FlxEase.backOut});
+					}
+				}
 			}
 		}
+		#end
 	}
-	*/
 }
