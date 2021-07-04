@@ -20,13 +20,15 @@
 	<window if="html5" resizable="false" />
 
 	<!--Desktop-specific-->
-	<window if="desktop" orientation="landscape" fullscreen="true" resizable="true" />
-
-	<!--Flash-specific-->
-	<window if="flash" width="0" height="0" />
+	<window if="desktop" orientation="landscape" fullscreen="false" resizable="true" />
 
 	<!--Mobile-specific-->
 	<window if="mobile" orientation="landscape" fullscreen="true" width="0" height="0" />
+
+	<android target-sdk-version="17" />
+	<window hardware="true" allow-shaders="true" require-shaders="true" if="cpp"/>
+	<window vsync="true" antialiasing="4" if="cpp" />
+	<window orientation="portrait" /> || <window orientation="landscape" if="cpp"/>
 
 	<!-- _____________________________ Path Settings ____________________________ -->
 
@@ -40,6 +42,12 @@
 
 	<!--In case you want to use the addons package-->
 	<haxelib name="flixel-addons" />
+
+	<haxelib name="hxcpp-debug-server" />
+	
+	<haxelib name="ldtk-haxe-api" />
+
+	<haxelib name="deepnightLibs" />
 
 	<haxedef name="advanced-telemetry" />
 
