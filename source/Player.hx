@@ -6,8 +6,7 @@ import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.effects.particles.FlxEmitter;
 
-class Player extends FlxSprite
-{
+class Player extends FlxSprite {
 	// Controls
 	private var left:Bool = false;
 	private var right:Bool = false;
@@ -17,27 +16,25 @@ class Player extends FlxSprite
 	// Current State
 	private var state:FlxState;
 
-    public function new(?X:Float = 0, ?Y:Float = 0, STATE:FlxState)
-    {
-        super(X, Y);
+	public function new(?X:Float = 0, ?Y:Float = 0, STATE:FlxState) {
+		super(X, Y);
 
 		state = STATE;
 
 		initGraphics();
 		initPhysics();
 
-		//debug();
-    }
+		// debug();
+	}
 
-	private function initGraphics():Void
-	{
+	private function initGraphics():Void {
 		loadGraphic(AssetPaths.CharSpriteSheet_WHITE__png, true, 200, 200);
 
-		setFacingFlip(FlxObject.LEFT, true, false);
-		setFacingFlip(FlxObject.RIGHT, false, false);
+		setFacingFlip(LEFT, true, false);
+		setFacingFlip(RIGHT, false, false);
 
-		//scale.scale(2);
-		//updateHitbox();
+		// scale.scale(2);
+		// updateHitbox();
 
 		width -= 16;
 		centerOffsets();
@@ -54,15 +51,13 @@ class Player extends FlxSprite
 		FlxG.camera.follow(this, PLATFORMER, 0.1);
 	}
 
-	private function initPhysics():Void
-	{
+	private function initPhysics():Void {
 		maxVelocity.set(Reg._speed / 1.2, Reg._jumpPower * 1.5);
 		acceleration.y = Reg._gravity;
 		drag.set(Reg._dragX, 0);
 	}
 
-	override public function update(elapsed:Float):Void
-	{
+	override public function update(elapsed:Float):Void {
 		if (Reg._canMove)
 			handleMovement();
 		handlePhysics();
@@ -71,78 +66,65 @@ class Player extends FlxSprite
 		super.update(elapsed);
 	}
 
-	private function handleMovement():Void
-	{
+	private function handleMovement():Void {
 		acceleration.x = 0;
 
 		left = FlxG.keys.pressed.LEFT;
 		right = FlxG.keys.pressed.RIGHT;
 		jump = FlxG.keys.justPressed.S;
 		releaseJump = FlxG.keys.justReleased.S;
-		
+
 		// Left movement
-		if (left && !right)
-		{
-			facing = FlxObject.LEFT;
-			if (isTouching(FlxObject.FLOOR))
+		if (left && !right) {
+			facing = LEFT;
+			if (isTouching(FLOOR))
 				acceleration.x = -maxVelocity.x * 6;
 			else
 				acceleration.x = -maxVelocity.x * 4;
 		}
 		// Right movement
-		if (right && !left)
-		{
-			facing = FlxObject.RIGHT;
-			if (isTouching(FlxObject.FLOOR))
+		if (right && !left) {
+			facing = RIGHT;
+			if (isTouching(FLOOR))
 				acceleration.x = maxVelocity.x * 6;
 			else
 				acceleration.x = maxVelocity.x * 4;
 		}
 
-		if (isTouching(FlxObject.FLOOR))
+		if (isTouching(FLOOR))
 			Reg._jumpCount = 2;
-		if (jump && Reg._jumpCount > 0)
-		{
+		if (jump && Reg._jumpCount > 0) {
 			velocity.y -= maxVelocity.y / 1.5;
 			Reg._jumpCount--;
-		}
-		else if (releaseJump)
-		{
+		} else if (releaseJump) {
 			if (velocity.y < -30)
 				velocity.y = -100;
 		}
 	}
 
-	private function handlePhysics():Void
-	{
+	private function handlePhysics():Void {
 		maxVelocity.set(Reg._speed / 1.2, Reg._jumpPower * 1.5);
 		acceleration.y = Reg._gravity;
 		drag.set(Reg._dragX, 0);
 	}
 
-	private function handleAnimation():Void
-	{
-		if (isTouching(FlxObject.FLOOR))
-		{
+	private function handleAnimation():Void {
+		if (isTouching(FLOOR)) {
 			if (velocity.x != 0)
 				animation.play("run");
 			else
 				animation.play("idle");
-		}
-		else
-		{
+		} else {
 			if (velocity.y != 0)
 				animation.play("jump");
 		}
 
-		if (this.justTouched(FlxObject.FLOOR))
-		{
+		if (this.justTouched(FLOOR)) {
 			state.forEachOfType(FlxEmitter, emitParticles);
 		}
 	}
 
-	private function emitParticles(emitter:FlxEmitter):Void
-	{
+	private function emitParticles(emitter:FlxEmitter):Void {
 		emitter.setPosition(this.x + (this.width / 2), this.y + this.height);
 		emitter.start(true, 0, 10);
 	}
