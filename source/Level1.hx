@@ -1,31 +1,30 @@
 package;
 
-import flixel.FlxObject;
-import flixel.group.FlxSpriteGroup;
-import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.FlxG;
-import flixel.FlxState;
+import flixel.FlxObject;
 import flixel.FlxSprite;
+import flixel.FlxState;
+import flixel.addons.display.FlxBackdrop;
+import flixel.group.FlxGroup.FlxTypedGroup;
+import flixel.group.FlxSpriteGroup;
+import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
 import flixel.util.FlxColor;
-import flixel.addons.display.FlxBackdrop;
-import flixel.math.FlxMath;
 
 class Level1 extends FlxState
 {
-	//public var player:Player;
-
+	// public var player:Player;
 	var collider:FlxSpriteGroup;
 	var background:FlxSpriteGroup;
 
 	public var noah:NPC;
 	public var npcs:FlxTypedGroup<NPC>;
-	
+
 	override public function create():Void
 	{
 		super.create();
 
-        setProperties();
+		setProperties();
 		addLevel();
 	}
 
@@ -48,7 +47,7 @@ class Level1 extends FlxState
 		add(background);
 
 		// Iterate all world levels
-		for (level in project.levels)
+		for (level in project.all_worlds.Default.levels)
 		{
 			// Place it using level world coordinates (in pixels)
 			collider.setPosition(level.worldX, level.worldY);
@@ -89,13 +88,13 @@ class Level1 extends FlxState
 		noah.loadGraphic(AssetPaths.Noah__png, false, 32, 64);
 		trace(noah.width);
 		trace(noah.height);
-		noah.setFacingFlip(FlxObject.LEFT, true, false);
-		noah.setFacingFlip(FlxObject.RIGHT, false, false);
+		noah.setFacingFlip(LEFT, true, false);
+		noah.setFacingFlip(RIGHT, false, false);
 
 		npcs.add(noah);
 		add(noah);
 
-		noah.facing = FlxObject.LEFT;
+		noah.facing = LEFT;
 
 		x = entityLayer.all_Player[0].pixelX;
 		y = entityLayer.all_Player[0].pixelY;
@@ -110,37 +109,33 @@ class Level1 extends FlxState
 
 		FlxG.collide(collider, Reg.player);
 	}
-
-
-
-
 	/*
-	function handleMotion() {
-		 * # Example Data
-		x = sample(-100:100, 50)
+		function handleMotion() {
+			 * # Example Data
+			x = sample(-100:100, 50)
 
-		#Normalized Data
-		normalized = (x-min(x))/(max(x)-min(x))
-		
-		trace(Reg.player.x);
-		// This is what needs to be operated on.
-		//level.foregroundTiles
-		for (tile in tileCoords)
-		{
-			//trace();
-			var minX = -(tile.x - 500);
-			var maxX = (tile.x + 500);
-			var normalized = (Reg.player.x - minX) / (maxX - minX);
-			//trace(normalized);
-			//tile.alpha  = ((Reg.player.x - 0) / (1 - 0) * (255 - 0) + 0);
-			//trace("Close to Tile.X " + tile.x + " Tile.Y: " + tile.y);
-			//trace();
-			//trace(tile.y);
-			if (FlxMath.distanceToPoint(Reg.player, new FlxPoint(tile.x, tile.y)) <= 200)
+			#Normalized Data
+			normalized = (x-min(x))/(max(x)-min(x))
+			
+			trace(Reg.player.x);
+			// This is what needs to be operated on.
+			//level.foregroundTiles
+			for (tile in tileCoords)
 			{
-				
+				//trace();
+				var minX = -(tile.x - 500);
+				var maxX = (tile.x + 500);
+				var normalized = (Reg.player.x - minX) / (maxX - minX);
+				//trace(normalized);
+				//tile.alpha  = ((Reg.player.x - 0) / (1 - 0) * (255 - 0) + 0);
+				//trace("Close to Tile.X " + tile.x + " Tile.Y: " + tile.y);
+				//trace();
+				//trace(tile.y);
+				if (FlxMath.distanceToPoint(Reg.player, new FlxPoint(tile.x, tile.y)) <= 200)
+				{
+					
+				}
 			}
 		}
-	}
-	*/
+	 */
 }

@@ -24,17 +24,17 @@ class Player extends FlxSprite
 	// Current State
 	private var state:FlxState;
 
-    public function new(?X:Float = 0, ?Y:Float = 0, STATE:FlxState)
-    {
-        super(X, Y);
+	public function new(?X:Float = 0, ?Y:Float = 0, STATE:FlxState)
+	{
+		super(X, Y);
 
 		initGraphics();
 		initAnimation();
 
 		initPhysics();
 
-		//debug();
-    }
+		// debug();
+	}
 
 	private function initGraphics():Void
 	{
@@ -44,8 +44,8 @@ class Player extends FlxSprite
 		set_height(188);
 		centerOffsets();
 
-		setFacingFlip(FlxObject.LEFT, true, false);
-		setFacingFlip(FlxObject.RIGHT, false, false);
+		setFacingFlip(LEFT, true, false);
+		setFacingFlip(RIGHT, false, false);
 
 		FlxG.camera.follow(this, PLATFORMER, 0.1);
 	}
@@ -88,7 +88,7 @@ class Player extends FlxSprite
 		// Left movement
 		if (Reg.left_Pressed() && !Reg.right_Pressed())
 			move("left");
-		
+
 		// Right movement
 		if (Reg.right_Pressed() && !Reg.left_Pressed())
 			move("right");
@@ -96,7 +96,7 @@ class Player extends FlxSprite
 		// Up movement
 		if (Reg.up_Pressed() && !Reg.down_Pressed())
 			move("up");
-		
+
 		// Down movement
 		if (Reg.down_Pressed() && !Reg.up_Pressed())
 			move("down");
@@ -113,7 +113,7 @@ class Player extends FlxSprite
 			move("left");
 		if (value.LEFT_STICK_X > 0)
 			move("right");
-		
+
 		if (value.LEFT_STICK_Y < 0)
 			move("up");
 		if (value.LEFT_STICK_Y > 0)
@@ -123,25 +123,24 @@ class Player extends FlxSprite
 	private function move(direction:String):Void
 	{
 		var multiFactor:Int = 5;
-		
+
 		switch (direction)
 		{
-			case "left": 
-				facing = FlxObject.LEFT;
+			case "left":
+				facing = LEFT;
 				acceleration.x = -maxVelocity.x * multiFactor;
 			case "right":
-				facing = FlxObject.RIGHT;
+				facing = RIGHT;
 				acceleration.x = maxVelocity.x * multiFactor;
-			
+
 			case "up":
-				facing = FlxObject.UP;
+				facing = UP;
 				acceleration.y = -maxVelocity.y * multiFactor;
 			case "down":
-				facing = FlxObject.DOWN;
+				facing = DOWN;
 				acceleration.y = maxVelocity.y * multiFactor;
 		}
 	}
-	
 
 	private function handlePhysics():Void
 	{
