@@ -1,4 +1,4 @@
-package;
+package planes;
 
 import flixel.FlxCamera;
 import flixel.FlxG;

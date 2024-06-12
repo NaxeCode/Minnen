@@ -1,10 +1,12 @@
-package;
+package players;
 
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.input.gamepad.FlxGamepad;
+import tools.AssetPaths;
+import tools.Reg;
 
 /**
  *  TODO:

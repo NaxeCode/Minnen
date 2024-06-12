@@ -3,10 +3,12 @@ package;
 import flash.Lib;
 import flixel.FlxG;
 import flixel.FlxGame;
+import menu.MenuState;
 import openfl.display.Sprite;
 import openfl.events.Event;
 import openfl.events.KeyboardEvent;
 import openfl.ui.Keyboard;
+import tools.Reg;
 
 class Main extends Sprite
 {

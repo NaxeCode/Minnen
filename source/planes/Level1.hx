@@ -1,5 +1,6 @@
-package;
+package planes;
 
+import characters.NPC;
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
@@ -10,6 +11,10 @@ import flixel.group.FlxSpriteGroup;
 import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
 import flixel.util.FlxColor;
+import players.Player;
+import tools.AssetPaths;
+import tools.LdtkProject;
+import tools.Reg;
 
 class Level1 extends FlxState
 {
@@ -73,7 +78,7 @@ class Level1 extends FlxState
 		add(collider);
 	}
 
-	function createEntities(entityLayer:LdtkProject.Layer_Entities)
+	function createEntities(entityLayer:tools.LdtkProject.Layer_Entities)
 	{
 		var x:Int;
 		var y:Int;

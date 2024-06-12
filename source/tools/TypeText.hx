@@ -1,4 +1,4 @@
-package;
+package tools;
 
 import flash.media.Sound;
 import flixel.FlxG;
