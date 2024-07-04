@@ -22,9 +22,6 @@ class Level1 extends FlxState
 	var collider:FlxSpriteGroup;
 	var background:FlxSpriteGroup;
 
-	public var noah:NPC;
-	public var npcs:FlxTypedGroup<NPC>;
-
 	override public function create():Void
 	{
 		super.create();
@@ -80,29 +77,8 @@ class Level1 extends FlxState
 
 	function createEntities(entityLayer:tools.LdtkProject.Layer_Entities)
 	{
-		var x:Int;
-		var y:Int;
-
-		x = entityLayer.all_Noah[0].pixelX;
-		y = entityLayer.all_Noah[0].pixelY;
-
-		npcs = new FlxTypedGroup<NPC>();
-
-		noah = new NPC(x, y);
-		noah.text = entityLayer.all_Noah[0].f_string;
-		noah.loadGraphic(AssetPaths.Noah__png, false, 32, 64);
-		trace(noah.width);
-		trace(noah.height);
-		noah.setFacingFlip(LEFT, true, false);
-		noah.setFacingFlip(RIGHT, false, false);
-
-		npcs.add(noah);
-		add(noah);
-
-		noah.facing = LEFT;
-
-		x = entityLayer.all_Player[0].pixelX;
-		y = entityLayer.all_Player[0].pixelY;
+		var x = entityLayer.all_Player[0].pixelX;
+		var y = entityLayer.all_Player[0].pixelY;
 
 		Reg.player = new Player(x, y, this);
 		add(Reg.player);
