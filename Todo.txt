@@ -5,8 +5,8 @@ Here's what needs to be done for 0.1.0 to be done and merged into the main branc
 [ ] plan out the initial archetecture based on current design creteria
 [ ] Start implementing classes, functions, and setting up MVP prototype.
 
-[ ] Remove all tiles from Ldtk scene.
-[ ] Work out how long the level should be.
+[X] Remove all tiles from Ldtk scene.
+[ ] Work out how long the hub should be.
 [ ] Work out the resolution of the tiles in the project.
 [ ] Make Level 1 a Platformer, and Level 2 a RPG. Connect them with a cutscene.
 [ ] Level up your graphic design skills.
