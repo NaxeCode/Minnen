@@ -6,7 +6,7 @@ import flixel.FlxState;
 import flixel.group.FlxGroup;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
-import planes.Level1;
+import planes.LogWorld;
 import tools.Reg;
 
 class MenuState extends FlxState
@@ -59,28 +59,6 @@ class MenuState extends FlxState
 		formatText(text);
 		textGroup.add(text);
 
-		text = new FlxText();
-		text.text = "Design / Art - Lily (@Lileaves)";
-		formatCredText(text);
-		text.y += 90;
-		text.y += 60;
-		textGroup.add(text);
-
-		text = new FlxText();
-		text.text = "Design / Programming - Naxe (@NaxeCode)";
-		formatCredText(text);
-		text.y += (100 + 35);
-		text.y += 60;
-		textGroup.add(text);
-
-		/*
-			text = new FlxText();
-			text.text = "Music - Logan Hart (@LHartMusic)";
-			formatText(text);
-			text.y += (110 + 35 * 2);
-			textGroup.add(text);
-		 */
-
 		add(textGroup);
 	}
 
@@ -92,13 +70,7 @@ class MenuState extends FlxState
 
 	private function formatText(txt:FlxText):Void
 	{
-		txt.setFormat(Reg.subFont, 30, Reg.subColor, CENTER);
-		txt.screenCenter();
-	}
-
-	private function formatCredText(txt:FlxText):Void
-	{
-		txt.setFormat(Reg.creditsFont, 25, Reg.subColor, CENTER);
+		txt.setFormat(Reg.mainFont, 30, Reg.subColor, CENTER);
 		txt.screenCenter();
 	}
 
@@ -121,6 +93,6 @@ class MenuState extends FlxState
 	private function playGame():Void
 	{
 		FlxG.keys.enabled = true;
-		FlxG.switchState(new Level1());
+		FlxG.switchState(LogWorld.new);
 	}
 }

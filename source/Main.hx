@@ -20,7 +20,8 @@ class Main extends Sprite
 		stage.addEventListener(KeyboardEvent.KEY_DOWN, stage_onKeyDown);
 		#end
 
-		addChild(new FlxGame(1920, 1080, MenuState, 60, 60, true, true));
+		// Build with -Dskipmenu to boot straight into the log world prototype
+		addChild(new FlxGame(1920, 1080, #if skipmenu planes.LogWorld #else MenuState #end, 60, 60, true, true));
 
 		Reg.setupRegistry();
 	}
