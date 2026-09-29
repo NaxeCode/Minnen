@@ -1,6 +1,6 @@
 package;
 
-import flash.Lib;
+import openfl.Lib;
 import flixel.FlxG;
 import flixel.FlxGame;
 import menu.MenuState;

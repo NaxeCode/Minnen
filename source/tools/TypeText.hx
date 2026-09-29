@@ -1,12 +1,12 @@
 package tools;
 
-import flash.media.Sound;
+import openfl.media.Sound;
 import flixel.FlxG;
 import flixel.input.keyboard.FlxKey;
 import flixel.math.FlxMath;
 import flixel.math.FlxRandom;
 import flixel.system.FlxAssets;
-import flixel.system.FlxSound;
+import flixel.sound.FlxSound;
 import flixel.text.FlxText;
 
 #if !flash
@@ -539,7 +539,7 @@ class TypeText extends FlxText
 	function loadDefaultSound():Void
 	{
 		#if FLX_SOUND_SYSTEM
-		_sound = FlxG.sound.load(new TypeSound());
+		_sound = FlxG.sound.create(new TypeSound());
 		#else
 		_sound = new FlxSound();
 		_sound.loadEmbedded(new TypeSound());
