@@ -1,14 +1,12 @@
-Ok, let's write down a todo list atm for the things that I think need to be done by the end of the week.
-I'd like to finish the first 3 levels by the end of this week, that'd be awesome, so we'll focus on the first 3 levels.
+Since changing the Design, the game needs some extra features and implementations so, I need to come up with a new todo list that describes the features we currently need to undergo the next milestone which is 0.1.0
 
-Todo list, level 1:
-[ ] Make the jump slightly higher
-[ ] Implement double jump
-[X] Have reaching the end of the cave:
-	disable player controls,
-	display's tooth graphic,
-	upon pressing Z/SPACE, Screen fades to white+transitions to level 2.
-[ ] Level 1 Music
-[ ] Make the player spawn particles on every step
+Here's what needs to be done for 0.1.0 to be done and merged into the main branch:
+[X] Remove everything not related to the main game's code
+[ ] plan out the initial archetecture based on current design creteria
+[ ] Start implementing classes, functions, and setting up MVP prototype.
 
-Todo list, level 2:
+[X] Remove all tiles from Ldtk scene.
+[ ] Work out how long the hub should be.
+[ ] Work out the resolution of the tiles in the project.
+[ ] Make Level 1 a Platformer, and Level 2 a RPG. Connect them with a cutscene.
+[ ] Level up your graphic design skills.
