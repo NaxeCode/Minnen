@@ -1,3 +1,5 @@
+<img src=".github/brand/logo.svg" width="80" alt="" />
+
 # Minnen
 
 A psychological game about night terrors, built in HaxeFlixel. Started in 2017, currently being rebuilt around a curved "rolling log" world.
