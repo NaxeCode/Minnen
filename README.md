@@ -64,6 +64,14 @@ The native build requires shader support. Builds go to `export/`.
 
 Work in progress. The log world uses placeholder art generated in code; the 0.1.0 milestone in `Todo.txt` (architecture, hub, level structure) is still open. History goes back to 2017 (see `Minnen_Changelog.txt`); this repo starts in 2018, moved to LDtk in 2021, and updated to HaxeFlixel 6.2 in September 2026.
 
+## How this project is run
+
+[![tracked in Linear](.github/brand/badges/run-linear.svg)](https://linear.app) [![AI-reviewed · Codex](.github/brand/badges/run-codex.svg)](#how-this-project-is-run) [![PR-only main](.github/brand/badges/run-main.svg)](#how-this-project-is-run)
+
+- **Planning:** tracked in Linear as initiatives → projects → milestones → issues; branch names and PR titles carry the issue ID.
+- **Review:** every pull request gets a Codex review before merge.
+- **Guardrails:** the default branch changes only through pull requests (GitHub ruleset).
+
 ## License
 
 Apache 2.0
