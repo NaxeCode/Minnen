@@ -194,7 +194,7 @@ def save(path, arr):
     Image.fromarray(arr).save(path)
 
 
-def build_dataset(root, n_train=60, n_val=18, n_test=26):
+def build_dataset(root, n_train=60, n_val=18, n_test=26, only_split=None):
     root.mkdir(parents=True, exist_ok=True)
     rows = []
     for split, count, start in [
@@ -202,6 +202,8 @@ def build_dataset(root, n_train=60, n_val=18, n_test=26):
         ("validation", n_val, 160),
         ("test", n_test, 270),
     ]:
+        if only_split and only_split != split:
+            continue
         for seed in range(start, start + count):
             ref = render(seed, "unchanged", 192, 112)
             rf = f"{seed}-reference.png"
@@ -236,5 +238,6 @@ def build_dataset(root, n_train=60, n_val=18, n_test=26):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("directory", type=Path)
+    parser.add_argument("--split", choices=("train", "validation", "test"))
     args = parser.parse_args()
-    build_dataset(args.directory)
+    build_dataset(args.directory, only_split=args.split)
