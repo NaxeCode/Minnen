@@ -65,6 +65,8 @@ node tools/verify-benchmark.mjs data
 npm test
 ```
 
+The pull-request check regenerates only the 26 held-out seeds on Linux and verifies the checked-in model and baseline against all 156 decisions and their mask overlaps. Use `python tools/render.py data --split test` to run that shorter path locally.
+
 The Minnen fixture additionally needs Haxe on PATH. It executes the game's existing [LogCamera](../../source/logworld/LogCamera.hx) at two curvature settings against fixed world points. A two-field viewport stub provides the screen dimensions. A separate original illustration draws the projected grove. This is a camera fixture, independent of the mechanical training scene. The full game and GPU effects are outside this capture.
 
 ## Source and history
