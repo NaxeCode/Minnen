@@ -1,0 +1,938 @@
+[
+  {
+    "id": "270-unchanged",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "270-exposure",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "270-jitter",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "270-missing",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "270-material",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "270-displaced",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "271-unchanged",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "271-exposure",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "271-jitter",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "271-missing",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "271-material",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "271-displaced",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "272-unchanged",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "272-exposure",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "272-jitter",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "272-missing",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "272-material",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "272-displaced",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "273-unchanged",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "273-exposure",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "273-jitter",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "273-missing",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "273-material",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "273-displaced",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "274-unchanged",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "274-exposure",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "274-jitter",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "274-missing",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "274-material",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": false
+  },
+  {
+    "id": "274-displaced",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "275-unchanged",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "275-exposure",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "275-jitter",
+    "expectedDefect": false,
+    "learnedFlagged": true,
+    "baselineFlagged": false
+  },
+  {
+    "id": "275-missing",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "275-material",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "275-displaced",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "276-unchanged",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "276-exposure",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "276-jitter",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "276-missing",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "276-material",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "276-displaced",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "277-unchanged",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "277-exposure",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "277-jitter",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "277-missing",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "277-material",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "277-displaced",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "278-unchanged",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "278-exposure",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "278-jitter",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "278-missing",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "278-material",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "278-displaced",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "279-unchanged",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "279-exposure",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "279-jitter",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "279-missing",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "279-material",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "279-displaced",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "280-unchanged",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "280-exposure",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "280-jitter",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "280-missing",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "280-material",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": false
+  },
+  {
+    "id": "280-displaced",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "281-unchanged",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "281-exposure",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "281-jitter",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "281-missing",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "281-material",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "281-displaced",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "282-unchanged",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "282-exposure",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "282-jitter",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "282-missing",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "282-material",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "282-displaced",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "283-unchanged",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "283-exposure",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "283-jitter",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "283-missing",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "283-material",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "283-displaced",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "284-unchanged",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "284-exposure",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "284-jitter",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "284-missing",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "284-material",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "284-displaced",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "285-unchanged",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "285-exposure",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "285-jitter",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "285-missing",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "285-material",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "285-displaced",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "286-unchanged",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "286-exposure",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "286-jitter",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "286-missing",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "286-material",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": false
+  },
+  {
+    "id": "286-displaced",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "287-unchanged",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "287-exposure",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "287-jitter",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "287-missing",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "287-material",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "287-displaced",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "288-unchanged",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "288-exposure",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "288-jitter",
+    "expectedDefect": false,
+    "learnedFlagged": true,
+    "baselineFlagged": false
+  },
+  {
+    "id": "288-missing",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "288-material",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "288-displaced",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "289-unchanged",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "289-exposure",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "289-jitter",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "289-missing",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "289-material",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "289-displaced",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "290-unchanged",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "290-exposure",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "290-jitter",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "290-missing",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "290-material",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "290-displaced",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "291-unchanged",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "291-exposure",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "291-jitter",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "291-missing",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "291-material",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "291-displaced",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "292-unchanged",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "292-exposure",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "292-jitter",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "292-missing",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "292-material",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": false
+  },
+  {
+    "id": "292-displaced",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "293-unchanged",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "293-exposure",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "293-jitter",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "293-missing",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "293-material",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "293-displaced",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "294-unchanged",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "294-exposure",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "294-jitter",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "294-missing",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "294-material",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "294-displaced",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "295-unchanged",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "295-exposure",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "295-jitter",
+    "expectedDefect": false,
+    "learnedFlagged": false,
+    "baselineFlagged": false
+  },
+  {
+    "id": "295-missing",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "295-material",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  },
+  {
+    "id": "295-displaced",
+    "expectedDefect": true,
+    "learnedFlagged": true,
+    "baselineFlagged": true
+  }
+]

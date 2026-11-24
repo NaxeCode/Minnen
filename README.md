@@ -13,6 +13,14 @@ A psychological game about night terrors, built in HaxeFlixel. Started in 2017, 
 
 <p align="center"><sub>The protagonist's hand-drawn walk cycle, from <code>assets/images/</code>.</sub></p>
 
+## Frame Triage
+
+The November 2026 graphics workbench lets you open two screenshots, drag between them, and compare a trained tile detector with an aligned pixel baseline. Try a missing component, a real false alarm or a fixture that runs Minnen’s Haxe camera at two curvature settings. The included benchmark records every decision on 156 synthetic held-out pairs.
+
+[![Frame Triage workbench with the changed ring highlighted](tools/frame-triage/docs/workbench.webp)](tools/frame-triage/README.md)
+
+[Open the workbench instructions and benchmark](tools/frame-triage/README.md)
+
 ## What it does
 
 The current build boots to a title screen and then into the rolling log world prototype:
