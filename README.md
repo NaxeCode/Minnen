@@ -19,7 +19,7 @@ The November 2026 graphics workbench lets you open two screenshots, drag between
 
 [![Frame Triage workbench with the changed ring highlighted](tools/frame-triage/docs/workbench.webp)](tools/frame-triage/README.md)
 
-[Try the interactive workbench](https://naxe-portfolio-review.vercel.app/labs/frame-triage/) · [Run it locally and reproduce the benchmark](tools/frame-triage/README.md)
+[Try the interactive workbench](https://naxe.dev/labs/frame-triage/) · [Run it locally and reproduce the benchmark](tools/frame-triage/README.md)
 
 ## What it does
 

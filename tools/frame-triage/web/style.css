@@ -197,6 +197,9 @@ button:disabled {
   object-fit: fill;
   inset: 0;
 }
+.viewer img {
+  background-color: #fff;
+}
 .viewer img:not([src]) {
   visibility: hidden;
 }

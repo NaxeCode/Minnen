@@ -4,7 +4,7 @@ A graphics engineer reviewing screenshots has two questions. Did a part break, a
 
 ![Frame Triage showing the missing ring, the reference/candidate wipe and the learned tile overlay](docs/workbench.webp)
 
-[Try the workbench in your browser](https://naxe-portfolio-review.vercel.app/labs/frame-triage/)
+[Try the workbench in your browser](https://naxe.dev/labs/frame-triage/)
 
 ## Run the workbench
 
