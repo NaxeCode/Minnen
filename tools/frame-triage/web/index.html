@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6f5f1" />
+    <title>Frame Triage · Graphics inspection lab</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="mast">
+      <div class="brand">
+        <span class="mark" aria-hidden="true"></span> Frame Triage
+      </div>
+      <nav aria-label="Lab">
+        <a href="#workbench">Workbench</a><a href="#benchmark">Benchmark</a
+        ><a
+          href="https://github.com/NaxeCode/Minnen/tree/codex/frame-triage-workbench/tools/frame-triage"
+          >Source ↗</a
+        >
+      </nav>
+    </header>
+    <main>
+      <div class="intro">
+        <div>
+          <p class="eyebrow">Graphics inspection lab</p>
+          <h1>Frame Triage<span>.</span></h1>
+        </div>
+        <p>
+          Is that a broken render or a camera shift? Compare two frames and
+          inspect the regions a trained detector sends for review.
+        </p>
+      </div>
+      <section id="workbench" aria-label="Comparison workbench">
+        <div class="bar">
+          <label for="scene"
+            >Capture pair
+            <select id="scene" disabled>
+              <option>Loading captures…</option>
+            </select></label
+          ><button id="upload" type="button">
+            Open local pair <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+        <div class="layout">
+          <div class="plate">
+            <div class="viewer" id="viewer">
+              <img id="ref" alt="Reference render" /><img
+                id="cand"
+                alt="Candidate render"
+              /><canvas
+                id="overlay"
+                width="768"
+                height="448"
+                aria-hidden="true"
+              ></canvas>
+              <div class="divider" aria-hidden="true"><b>↔</b></div>
+              <span class="tag left">Reference</span
+              ><span class="tag right">Candidate</span>
+            </div>
+            <div class="wipe">
+              <label for="wipe">Compare frames</label
+              ><input
+                type="range"
+                id="wipe"
+                min="0"
+                max="100"
+                value="44"
+              /><output id="wipeValue" for="wipe">44%</output>
+            </div>
+          </div>
+          <aside>
+            <div class="eyebrow">Inspection</div>
+            <h2 id="caseTitle">Loading…</h2>
+            <p id="caseDetail"></p>
+            <div class="choice" role="group" aria-label="Inspection method">
+              <button type="button" id="learned" aria-pressed="true">
+                Learned</button
+              ><button type="button" id="baseline" aria-pressed="false">
+                Pixel baseline
+              </button>
+            </div>
+            <div class="ruling">
+              <span class="lamp"></span
+              ><strong id="decision" aria-live="polite">Analyzing pair…</strong>
+            </div>
+            <dl>
+              <div>
+                <dt>Flagged regions</dt>
+                <dd id="regions">—</dd>
+              </div>
+              <div>
+                <dt>Alignment</dt>
+                <dd id="align">—</dd>
+              </div>
+              <div>
+                <dt>Capture size</dt>
+                <dd id="dimensions">—</dd>
+              </div>
+            </dl>
+            <label class="mask"
+              ><input id="mask" type="checkbox" checked /><span
+                >Show flagged tiles</span
+              ></label
+            >
+            <button class="report" id="download" disabled>
+              Download inspection JSON ↓
+            </button>
+          </aside>
+        </div>
+        <p id="feedback" role="status"></p>
+      </section>
+      <section id="benchmark">
+        <div>
+          <p class="eyebrow">Held-out evaluation</p>
+          <h2>Where it earns the extra review.</h2>
+          <p>
+            Six changes per scene, 26 unseen scene seeds and 78 seeded defects.
+            Both methods use the same alignment. Thresholds were selected on a
+            separate validation split.
+          </p>
+        </div>
+        <div>
+          <table>
+            <caption class="sr">
+              Results on 156 held-out procedural pairs
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Method</th>
+                <th scope="col">Caught</th>
+                <th scope="col">False alarms</th>
+                <th scope="col">Mask IoU</th>
+              </tr>
+            </thead>
+            <tbody id="metrics"></tbody>
+          </table>
+          <p class="foot">
+            Mask IoU measures overlap with the changed region on defect frames.
+            The benchmark covers one procedural scene family.
+            <a href="./assets/test-cases.json">Inspect all 156 decisions ↗</a>
+          </p>
+        </div>
+      </section>
+      <details>
+        <summary>How a frame becomes a decision</summary>
+        <p>
+          The workbench samples each image at 192 × 112, estimates a translation
+          of up to two sampled pixels, then examines 336 tiles. The trained
+          logistic model scores eight residual, color and context features per
+          tile. The baseline thresholds mean aligned pixel difference. Either
+          method sends a frame to review when any tile crosses its threshold.
+          The overlay uses reference-frame coordinates.
+        </p>
+        <p>
+          Global camera motion, new art styles, tiny defects and transparent
+          imagery can change the result. The two known failure examples come
+          directly from the held-out set. The Minnen grove uses the game’s Haxe
+          camera with separate illustration code. Each local pair stays in this
+          browser tab.
+        </p>
+      </details>
+    </main>
+    <footer>
+      <span>Frame Triage · Minnen graphics tools</span
+      ><a href="#workbench">Back to workbench ↑</a>
+    </footer>
+    <dialog id="local">
+      <form id="localForm">
+        <div class="dialogtop">
+          <h2>Open a local pair</h2>
+          <button type="button" id="dismiss" aria-label="Close dialog">
+            ×
+          </button>
+        </div>
+        <p>
+          Choose two images of the same dimensions. Analysis runs on this
+          device. PNG, JPEG and WebP up to 12 megapixels each.
+        </p>
+        <label
+          >Reference image<input
+            type="file"
+            id="localRef"
+            required
+            accept="image/png,image/jpeg,image/webp" /></label
+        ><label
+          >Candidate image<input
+            type="file"
+            id="localCand"
+            required
+            accept="image/png,image/jpeg,image/webp"
+        /></label>
+        <p id="error" role="alert"></p>
+        <button class="submit" id="inspect" type="submit">
+          Inspect this pair →
+        </button>
+      </form>
+    </dialog>
+    <script src="./app.mjs" type="module"></script>
+  </body>
+</html>

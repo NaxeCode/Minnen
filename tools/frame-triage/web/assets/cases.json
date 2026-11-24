@@ -1,0 +1,66 @@
+[
+  {
+    "id": "lead",
+    "kind": "missing",
+    "title": "Missing ceramic ring",
+    "detail": "A component is skipped when the candidate frame is drawn.",
+    "reference": "assets/lead-reference.png",
+    "candidate": "assets/lead-candidate.png"
+  },
+  {
+    "id": "finish",
+    "kind": "material",
+    "title": "Changed material",
+    "detail": "One component picks up a different material while the camera stays fixed.",
+    "reference": "assets/finish-reference.png",
+    "candidate": "assets/finish-candidate.png"
+  },
+  {
+    "id": "offset",
+    "kind": "displaced",
+    "title": "Displaced part",
+    "detail": "A translation changes the position of a single part.",
+    "reference": "assets/offset-reference.png",
+    "candidate": "assets/offset-candidate.png"
+  },
+  {
+    "id": "exposure",
+    "kind": "exposure",
+    "title": "Routine exposure drift",
+    "detail": "A gain change affects the whole frame. The geometry stays put.",
+    "reference": "assets/exposure-reference.png",
+    "candidate": "assets/exposure-candidate.png"
+  },
+  {
+    "id": "jitter",
+    "kind": "jitter",
+    "title": "Subpixel camera drift",
+    "detail": "The camera shifts slightly across the entire frame.",
+    "reference": "assets/jitter-reference.png",
+    "candidate": "assets/jitter-candidate.png"
+  },
+  {
+    "id": "false-alarm",
+    "kind": "jitter",
+    "title": "A real false alarm",
+    "detail": "A held-out camera shift crosses the learned threshold. The aligned baseline accepts it. Test pair 275-jitter.",
+    "reference": "assets/false-alarm-reference.png",
+    "candidate": "assets/false-alarm-candidate.png"
+  },
+  {
+    "id": "baseline-miss",
+    "kind": "material",
+    "title": "A baseline miss",
+    "detail": "A held-out material change slips below the baseline threshold. The learned detector flags it. Test pair 274-material.",
+    "reference": "assets/baseline-miss-reference.png",
+    "candidate": "assets/baseline-miss-candidate.png"
+  },
+  {
+    "id": "camera",
+    "kind": "camera",
+    "title": "Minnen camera projection",
+    "detail": "The same grove passes through Minnen\u2019s Haxe camera with curvature enabled and disabled. Both captures use original fixture artwork. This pair is outside the training family.",
+    "reference": "assets/camera-reference.png",
+    "candidate": "assets/camera-candidate.png"
+  }
+]

@@ -1,0 +1,64 @@
+{
+  "splits": {
+    "train": {
+      "pairs": 360,
+      "seeds": 60
+    },
+    "validation": {
+      "pairs": 108,
+      "seeds": 18
+    },
+    "test": {
+      "pairs": 156,
+      "seeds": 26
+    }
+  },
+  "learned": {
+    "tp": 78,
+    "fp": 2,
+    "fn": 0,
+    "tn": 76,
+    "frameF1": 0.9873,
+    "meanMaskIoU": 0.8168
+  },
+  "baseline": {
+    "tp": 74,
+    "fp": 0,
+    "fn": 4,
+    "tn": 78,
+    "frameF1": 0.9737,
+    "meanMaskIoU": 0.4993
+  },
+  "byKind": {
+    "displaced": {
+      "total": 26,
+      "learnedFlagged": 26,
+      "baselineFlagged": 26
+    },
+    "exposure": {
+      "total": 26,
+      "learnedFlagged": 0,
+      "baselineFlagged": 0
+    },
+    "jitter": {
+      "total": 26,
+      "learnedFlagged": 2,
+      "baselineFlagged": 0
+    },
+    "material": {
+      "total": 26,
+      "learnedFlagged": 26,
+      "baselineFlagged": 22
+    },
+    "missing": {
+      "total": 26,
+      "learnedFlagged": 26,
+      "baselineFlagged": 26
+    },
+    "unchanged": {
+      "total": 26,
+      "learnedFlagged": 0,
+      "baselineFlagged": 0
+    }
+  }
+}
