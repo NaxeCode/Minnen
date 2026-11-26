@@ -19,7 +19,7 @@ The November 2026 graphics workbench lets you open two screenshots, drag between
 
 [![Frame Triage workbench with the changed ring highlighted](tools/frame-triage/docs/workbench.webp)](tools/frame-triage/README.md)
 
-[Try the interactive workbench](https://naxe.dev/labs/frame-triage/) · [Run it locally and reproduce the benchmark](tools/frame-triage/README.md)
+[Try the interactive workbench](https://naxe.dev/labs/frame-triage/?utm_source=github&utm_medium=readme&utm_campaign=portfolio&utm_content=frame-triage) · [Run it locally and reproduce the benchmark](tools/frame-triage/README.md)
 
 ## What it does
 
@@ -85,4 +85,4 @@ Work in progress. The log world uses placeholder art generated in code; the 0.1.
 Apache 2.0
 
 ---
-<sub>Built by [Aladdin Ali](https://github.com/NaxeCode) · [naxecode.github.io](https://naxecode.github.io)</sub>
+<sub>Built by [Aladdin Ali](https://github.com/NaxeCode) · [naxecode.github.io](https://naxe.dev/?utm_source=github&utm_medium=readme&utm_campaign=portfolio&utm_content=minnen)</sub>
